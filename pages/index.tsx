@@ -5,7 +5,7 @@ import Sidebar from "../components/Sidebar";
 
 const Home: NextPage = () => {
   return (
-    <section className="h-screen overflow-hidden bg-[#FFFCF2]">
+    <section className="h-[100%] bg-[#FFFCF2] overflow-hidden">
       <Head>
         <title>Library</title>
         <link rel="icon" href="/images/favicon.ico" />
@@ -21,7 +21,7 @@ const Home: NextPage = () => {
         />
       </Head>
 
-      <main className="flex flex-col xl:flex-row">
+      <main>
         <Sidebar />
         <Center />
       </main>

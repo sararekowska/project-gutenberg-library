@@ -1,6 +1,6 @@
 const Sidebar = () => {
   return (
-    <section className="w-full bg-[#F1AE82] xl:h-screen xl:w-[26rem]">
+    <section className="w-full bg-[#F1AE82] xl:h-screen xl:fixed xl:w-[25%] 2xl:w-[20%]">
       {/* logo and text  */}
       <div className="w-full flex items-center justify-evenly sm:justify-center xl:pl-6 xl:pt-4">
         <img
