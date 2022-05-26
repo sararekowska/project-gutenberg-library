@@ -1,6 +1,8 @@
 import type { NextPage } from "next";
 import Sidebar from "../components/Sidebar";
 
+/// FIX HEAD AND FONT
+
 const Favourites: NextPage = () => {
   return (
     <section>

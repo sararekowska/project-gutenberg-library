@@ -1,4 +1,10 @@
+import { useState } from "react";
+import { useTranslation } from "react-i18next";
+
 const BookItem = (book: any) => {
+  const { t } = useTranslation();
+  const [fav, setFav] = useState(false);
+
   const readlink = book.book.resources.filter((res: any) =>
     res.type.includes("text/html")
   );
@@ -20,11 +26,17 @@ const BookItem = (book: any) => {
 
       <a
         href={readlink[0].uri}
-        className="text-blue-600 underline"
+        className="text-blue-600 underline text-lg"
         target="_blank"
       >
-        read {">>"}
+        {t("czytaj")}
       </a>
+      <button
+        className="cursor-pointer  text-pink-600 mt-2"
+        onClick={() => setFav(!fav)}
+      >
+        {fav ? "❤️" : "🤍"}
+      </button>
     </div>
   );
 };
