@@ -6,7 +6,7 @@ const Center = () => {
   const { data, fetchNextPage, isLoading, books } = useListBooks();
   console.log(books);
   return (
-    <section className="h-full w-full mt-8 xl:overflow-auto xl:w-[75%] xl:float-right xl:h-screen 2xl:w-[80%] scrollbar-hide">
+    <section className="h-full w-full pt-8 xl:overflow-auto xl:w-[75%] xl:float-right xl:h-screen 2xl:w-[80%] scrollbar-hide">
       <div className="flex flex-col items-center">
         <span className="text-3xl text-center mb-5 font-bold xl:text-4xl">
           Welcome to the Gutenberg Library!
