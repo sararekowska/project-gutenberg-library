@@ -5,7 +5,7 @@ import Sidebar from "../components/Sidebar";
 
 const Home: NextPage = () => {
   return (
-    <section className="h-[100%] bg-[#FFFCF2] overflow-hidden">
+    <section className="min-h-screen bg-[#FFFCF2] overflow-hidden">
       <Head>
         <title>Library</title>
         <link rel="icon" href="/images/favicon.ico" />

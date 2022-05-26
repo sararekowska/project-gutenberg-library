@@ -1,5 +1,6 @@
 import useListBooks from "../common/hooks/useListBooks";
 import BookItem from "./BookItem";
+import Spinner from "./Spinner";
 
 const Center = () => {
   const { data, fetchNextPage, isLoading, books } = useListBooks();
@@ -14,11 +15,15 @@ const Center = () => {
       </div>
 
       {/* books  */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-        {books?.map((book) => (
-          <BookItem key={book.id} book={book} />
-        ))}
-      </div>
+      {isLoading ? (
+        <Spinner />
+      ) : (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          {books?.map((book) => (
+            <BookItem key={book.id} book={book} />
+          ))}
+        </div>
+      )}
       <button onClick={() => fetchNextPage()}>x</button>
     </section>
   );

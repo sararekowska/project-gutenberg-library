@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const Sidebar = () => {
   return (
     <section className="w-full bg-[#F1AE82] xl:h-screen xl:fixed xl:w-[25%] 2xl:w-[20%]">
@@ -8,7 +10,11 @@ const Sidebar = () => {
           alt="library logo"
           className="w-18 h-16"
         />
-        <span className="text-3xl sm:ml-8">Gutenberg Library</span>
+        <Link href="/">
+          <span className="text-3xl sm:ml-8 cursor-pointer">
+            Gutenberg Library
+          </span>
+        </Link>
       </div>
 
       {/* search fields  */}
@@ -18,7 +24,8 @@ const Sidebar = () => {
           <span className="text-lg">search by name:</span>
           <input
             type="text"
-            className="bg-[#D9D9D9] focus:outline-none pl-1 w-80 xl:w-72"
+            placeholder="ex. dracula, dorian gray"
+            className="bg-[#FFFCF2] focus:outline-none pl-1 w-80 xl:w-72"
           />
         </div>
 
@@ -27,16 +34,19 @@ const Sidebar = () => {
           <span className="text-lg">filter by genre:</span>
           <input
             type="text"
-            className="bg-[#D9D9D9] focus:outline-none pl-1 w-80 xl:w-72"
+            placeholder="ex. adventure, psychological"
+            className="bg-[#FFFCF2] focus:outline-none pl-1 w-80 xl:w-72"
           />
         </div>
       </div>
 
       {/* favourites  */}
       <div className="w-full flex justify-center pb-6">
-        <span className="text-lg w-[320px] underline xl:xl:w-72">
-          my favourites {">>"}
-        </span>
+        <Link href="/favourites">
+          <span className="text-lg w-[320px] underline xl:xl:w-72 cursor-pointer">
+            my favourites {">>"}
+          </span>
+        </Link>
       </div>
     </section>
   );
