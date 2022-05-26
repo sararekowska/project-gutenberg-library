@@ -12,7 +12,6 @@ const useListBooks = () => {
     { getNextPageParam: (x) => x.next }
   );
   const books = query?.data?.pages.flatMap((x) => x.results);
-  console.log("books: ", books);
   return { ...query, books };
 };
 
