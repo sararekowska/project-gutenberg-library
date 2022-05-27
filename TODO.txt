@@ -1,4 +1,4 @@
  - types
- - searching by name
+ - add debounce
  - filering by genre
  - adding to favourites

@@ -12,5 +12,5 @@ export const bookGenre = atom({
 
 export const favouriteBooks = atom({
   key: "favouriteBooks",
-  default: [],
+  default: [] as string[],
 });

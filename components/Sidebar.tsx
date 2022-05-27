@@ -55,12 +55,11 @@ const Sidebar = () => {
       </div>
 
       {/* favourites  */}
-      <div className="w-full flex justify-center pb-6">
-        <Link href="/favourites">
-          <span className="text-lg w-[320px] underline xl:xl:w-72 cursor-pointer">
-            {t("fav")}
-          </span>
-        </Link>
+      <div className="w-full flex justify-center pb-6 items-center">
+        <span className="text-lg w-[320px] xl:w-72 ">
+          {t("fav")}
+          <input type="checkbox" className="ml-2" />
+        </span>
       </div>
 
       {/* languages  */}
