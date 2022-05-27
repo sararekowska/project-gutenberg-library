@@ -5,6 +5,7 @@ import { useTranslation } from "react-i18next";
 
 const Favourites: NextPage = () => {
   const { t } = useTranslation();
+
   return (
     <section>
       <Head>

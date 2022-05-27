@@ -1,0 +1,4 @@
+ - types
+ - searching by name
+ - filering by genre
+ - adding to favourites
