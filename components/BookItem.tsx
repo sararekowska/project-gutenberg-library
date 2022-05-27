@@ -17,15 +17,15 @@ const BookItem = (book: any) => {
   return (
     <div className="mb-10 flex flex-col justify-center items-center">
       <img
-        src={coverlink[0].uri}
+        src={coverlink[0]?.uri}
         alt="cover"
         className="border-[1px] border-black w-[12rem] h-[18rem]"
       />
       <h1 className="mt-2 text-center font-bold">{book.book.title}</h1>
-      <h2>{book.book.agents[0].person}</h2>
+      <h2>{book.book.agents[0]?.person}</h2>
 
       <a
-        href={readlink[0].uri}
+        href={readlink[0]?.uri}
         className="text-blue-600 underline text-lg"
         target="_blank"
       >
