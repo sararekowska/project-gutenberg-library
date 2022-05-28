@@ -1,4 +1,0 @@
- - types
- - add debounce
- - filering by genre
- - adding to favourites
