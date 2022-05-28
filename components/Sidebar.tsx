@@ -2,13 +2,15 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useRecoilState } from "recoil";
-import { bookName } from "../atoms/bookAtom";
+import { bookGenre, bookName, favCheckbox } from "../atoms/bookAtom";
 import i18n from "../translations/i18n";
 
 const Sidebar = () => {
   const [lang, setLang] = useState("en");
   const { t } = useTranslation();
   const [nameSearch, setNameSearch] = useRecoilState(bookName);
+  const [genreSearch, setGenreSearch] = useRecoilState(bookGenre);
+  const [checkbox, setCheckbox] = useRecoilState(favCheckbox);
 
   useEffect(() => {
     i18n.changeLanguage(lang);
@@ -50,6 +52,7 @@ const Sidebar = () => {
             type="text"
             placeholder="ex. adventure, psychological"
             className="bg-[#FFFCF2] focus:outline-none pl-1 w-80 xl:w-72"
+            onChange={(e) => setGenreSearch(e.target.value)}
           />
         </div>
       </div>
@@ -58,7 +61,11 @@ const Sidebar = () => {
       <div className="w-full flex justify-center pb-6 items-center">
         <span className="text-lg w-[320px] xl:w-72 ">
           {t("fav")}
-          <input type="checkbox" className="ml-2" />
+          <input
+            type="checkbox"
+            className="ml-2"
+            onChange={(e) => setCheckbox(e.target.checked)}
+          />
         </span>
       </div>
 

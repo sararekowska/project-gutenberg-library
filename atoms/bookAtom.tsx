@@ -10,7 +10,12 @@ export const bookGenre = atom({
   default: "",
 });
 
+export const favCheckbox = atom({
+  key: "favCheckbox",
+  default: false,
+});
+
 export const favouriteBooks = atom({
   key: "favouriteBooks",
-  default: [] as string[],
+  default: [] as number[],
 });

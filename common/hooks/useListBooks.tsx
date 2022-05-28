@@ -1,7 +1,14 @@
 import { useInfiniteQuery } from "react-query";
+import { Book } from "../types/types";
+
+type BookResponse = {
+  next: string;
+  previous: string | null;
+  results: Book[];
+};
 
 const useListBooks = () => {
-  const query = useInfiniteQuery(
+  const query = useInfiniteQuery<BookResponse>(
     ["books"],
     async ({ pageParam }) => {
       const response = await fetch(

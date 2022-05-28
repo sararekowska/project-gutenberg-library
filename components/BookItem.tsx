@@ -2,28 +2,29 @@ import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useRecoilState } from "recoil";
 import { favouriteBooks } from "../atoms/bookAtom";
+import { Book } from "../common/types/types";
 
-const BookItem = (book: any) => {
+const BookItem = ({ book }: { book: Book }) => {
   const { t } = useTranslation();
   const [favList, setFavList] = useRecoilState(favouriteBooks);
-  const [fav, setFav] = useState(favList.includes(book.book.id) ? true : false);
+  const [fav, setFav] = useState(favList.includes(book.id) ? true : false);
 
   useEffect(() => {
     if (fav) {
-      setFavList([...favList, book.book.id]);
+      setFavList([...favList, book.id]);
     } else {
-      if (favList.includes(book.book.id)) {
-        const newList = favList.filter((item) => item !== book.book.id);
+      if (favList.includes(book.id)) {
+        const newList = favList.filter((item) => item !== book.id);
         setFavList(newList);
       }
     }
   }, [fav]);
 
-  const readlink = book.book.resources.filter((res: any) =>
+  const readlink = book.resources.filter((res: any) =>
     res.type.includes("text/html")
   );
 
-  const coverlink = book.book.resources.filter(
+  const coverlink = book.resources.filter(
     (element: any) =>
       element.type.includes("image/jpeg") && element.uri.includes("medium")
   );
@@ -35,8 +36,8 @@ const BookItem = (book: any) => {
         alt="cover"
         className="border-[1px] border-black w-[12rem] h-[18rem]"
       />
-      <h1 className="mt-2 text-center font-bold">{book.book.title}</h1>
-      <h2>{book.book.agents[0]?.person}</h2>
+      <h1 className="mt-2 text-center font-bold">{book.title}</h1>
+      <h2>{book.agents[0]?.person}</h2>
 
       <a
         href={readlink[0]?.uri}
