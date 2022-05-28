@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { DebounceInput } from "react-debounce-input";
 import { useTranslation } from "react-i18next";
 import { useRecoilState } from "recoil";
 import { bookGenre, bookName, favCheckbox } from "../atoms/bookAtom";
@@ -37,10 +38,11 @@ const Sidebar = () => {
         {/* search by name  */}
         <div className="flex flex-col mb-4">
           <span className="text-lg">{t("szukaj_nazwa")}</span>
-          <input
-            type="text"
-            placeholder="ex. dracula, dorian gray"
+          <DebounceInput
             className="bg-[#FFFCF2] focus:outline-none pl-1 w-80 xl:w-72"
+            placeholder="ex. dracula, dorian gray"
+            minLength={1}
+            debounceTimeout={500}
             onChange={(e) => setNameSearch(e.target.value)}
           />
         </div>
@@ -48,10 +50,11 @@ const Sidebar = () => {
         {/* filter by genre  */}
         <div className="flex flex-col">
           <span className="text-lg">{t("szukaj_gatunek")}</span>
-          <input
-            type="text"
-            placeholder="ex. adventure, psychological"
+          <DebounceInput
             className="bg-[#FFFCF2] focus:outline-none pl-1 w-80 xl:w-72"
+            placeholder="ex. adventure, psychological"
+            minLength={1}
+            debounceTimeout={500}
             onChange={(e) => setGenreSearch(e.target.value)}
           />
         </div>
