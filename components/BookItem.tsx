@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useRecoilState } from "recoil";
 import { favouriteBooks } from "../atoms/bookAtom";
-import { Book } from "../common/types/types";
+import { Book, Resource } from "../common/types/types";
 
 const BookItem = ({ book }: { book: Book }) => {
   const { t } = useTranslation();
@@ -20,12 +20,12 @@ const BookItem = ({ book }: { book: Book }) => {
     }
   }, [fav]);
 
-  const readlink = book.resources.filter((res: any) =>
+  const readlink = book.resources.filter((res: Resource) =>
     res.type.includes("text/html")
   );
 
   const coverlink = book.resources.filter(
-    (element: any) =>
+    (element: Resource) =>
       element.type.includes("image/jpeg") && element.uri.includes("medium")
   );
 

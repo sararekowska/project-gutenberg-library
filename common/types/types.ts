@@ -12,3 +12,9 @@ export type Book = {
   subjects: string[];
   title: string;
 };
+
+export type Resource = {
+  id: number;
+  type: string;
+  uri: string;
+};
