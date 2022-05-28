@@ -43,6 +43,7 @@ const BookItem = ({ book }: { book: Book }) => {
         href={readlink[0]?.uri}
         className="text-blue-600 underline text-lg"
         target="_blank"
+        rel="noreferrer"
       >
         {t("czytaj")}
       </a>
