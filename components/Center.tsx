@@ -22,7 +22,6 @@ const Center = () => {
   });
 
   useEffect(() => {
-    console.log(intersection?.isIntersecting);
     intersection?.isIntersecting && fetchNextPage();
   }, [intersection?.isIntersecting]);
 
@@ -32,7 +31,6 @@ const Center = () => {
   const [genreSearch, setGenreSearch] = useRecoilState(bookGenre);
   const [checkbox, setCheckbox] = useRecoilState(favCheckbox);
   const [favList, setFavList] = useRecoilState(favouriteBooks);
-  console.log(books);
 
   return (
     <section className="h-full w-full pt-8 xl:overflow-auto xl:w-[75%] xl:float-right xl:h-screen 2xl:w-[80%] scrollbar-hide">
