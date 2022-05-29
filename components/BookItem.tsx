@@ -51,7 +51,7 @@ const BookItem = ({ book }: { book: Book }) => {
         className="cursor-pointer  text-pink-600 mt-2"
         onClick={() => setFav(!fav)}
       >
-        {fav ? "remove ❤️" : "add 🤍"}
+        {fav ? "❤️" : "🤍"}
       </button>
     </div>
   );
