@@ -37,7 +37,7 @@ const BookItem = ({ book }: { book: Book }) => {
         className="border-[1px] border-black w-[12rem] h-[18rem]"
       />
       <h1 className="mt-2 text-center font-bold">{book.title}</h1>
-      <h2>{book.agents[0]?.person}</h2>
+      <h2>{book.agents[0]?.person.replace(",", " ")}</h2>
 
       <a
         href={readlink[0]?.uri}

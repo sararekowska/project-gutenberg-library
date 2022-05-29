@@ -3,6 +3,7 @@ export const TRANSLATIONS_EN = {
   np1: "ex. dracula, dorian gray",
   szukaj_gatunek: "filter by genre: ",
   np2: "ex. adventure, psychological",
+  np3: "surname first ex. Austen Jane",
   fav: "my favourites ",
   witaj: "Welcome to the Gutenberg Project library!",
   dostepne: "Available books: ",
@@ -11,4 +12,5 @@ export const TRANSLATIONS_EN = {
   fav_add: "add to favourites: 🤍",
   fav_remove: "remove from favourites: ❤️",
   ulubione: "your favourite books: ",
+  szukaj_autor: "search by author: ",
 };

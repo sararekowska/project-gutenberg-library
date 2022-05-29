@@ -2,15 +2,16 @@ import { useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import { useIntersection } from "react-use";
 import { useRecoilState } from "recoil";
+import useListBooks from "../common/hooks/useListBooks";
+import BookItem from "./BookItem";
+import Spinner from "./Spinner";
 import {
+  bookAuthor,
   bookGenre,
   bookName,
   favCheckbox,
   favouriteBooks,
 } from "../atoms/bookAtom";
-import useListBooks from "../common/hooks/useListBooks";
-import BookItem from "./BookItem";
-import Spinner from "./Spinner";
 
 const Center = () => {
   const { t } = useTranslation();
@@ -28,6 +29,7 @@ const Center = () => {
   const { fetchNextPage, books, isLoading, isFetchingNextPage } =
     useListBooks();
   const [nameSearch, setNameSearch] = useRecoilState(bookName);
+  const [authorSearch, setAuthorSearch] = useRecoilState(bookAuthor);
   const [genreSearch, setGenreSearch] = useRecoilState(bookGenre);
   const [checkbox, setCheckbox] = useRecoilState(favCheckbox);
   const [favList, setFavList] = useRecoilState(favouriteBooks);
@@ -54,6 +56,16 @@ const Center = () => {
               genreSearch === "" ||
               book.subjects.filter((subject) =>
                 subject.toLowerCase().includes(genreSearch.toLowerCase())
+              ).length > 0
+          )
+          .filter(
+            (book) =>
+              authorSearch === "" ||
+              book.agents.filter((subject) =>
+                subject.person
+                  .replace(",", "")
+                  .toLowerCase()
+                  .includes(authorSearch.toLowerCase())
               ).length > 0
           )
           .filter((book) => !checkbox || favList.includes(book.id))

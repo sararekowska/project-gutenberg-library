@@ -3,13 +3,19 @@ import { useEffect, useState } from "react";
 import { DebounceInput } from "react-debounce-input";
 import { useTranslation } from "react-i18next";
 import { useRecoilState } from "recoil";
-import { bookGenre, bookName, favCheckbox } from "../atoms/bookAtom";
+import {
+  bookAuthor,
+  bookGenre,
+  bookName,
+  favCheckbox,
+} from "../atoms/bookAtom";
 import i18n from "../translations/i18n";
 
 const Sidebar = () => {
   const [lang, setLang] = useState("en");
   const { t } = useTranslation();
   const [nameSearch, setNameSearch] = useRecoilState(bookName);
+  const [authorSearch, setAuthorSearch] = useRecoilState(bookAuthor);
   const [genreSearch, setGenreSearch] = useRecoilState(bookGenre);
   const [checkbox, setCheckbox] = useRecoilState(favCheckbox);
 
@@ -40,10 +46,22 @@ const Sidebar = () => {
           <span className="text-lg">{t("szukaj_nazwa")}</span>
           <DebounceInput
             className="bg-[#FFFCF2] focus:outline-none pl-1 w-80 xl:w-72"
-            placeholder="ex. dracula, dorian gray"
+            placeholder={t("np1")}
             minLength={1}
             debounceTimeout={500}
             onChange={(e) => setNameSearch(e.target.value)}
+          />
+        </div>
+
+        {/* filter by author  */}
+        <div className="flex flex-col mb-4">
+          <span className="text-lg">{t("szukaj_autor")}</span>
+          <DebounceInput
+            className="bg-[#FFFCF2] focus:outline-none pl-1 w-80 xl:w-72"
+            placeholder={t("np3")}
+            minLength={1}
+            debounceTimeout={500}
+            onChange={(e) => setAuthorSearch(e.target.value)}
           />
         </div>
 
@@ -52,7 +70,7 @@ const Sidebar = () => {
           <span className="text-lg">{t("szukaj_gatunek")}</span>
           <DebounceInput
             className="bg-[#FFFCF2] focus:outline-none pl-1 w-80 xl:w-72"
-            placeholder="ex. adventure, psychological"
+            placeholder={t("np2")}
             minLength={1}
             debounceTimeout={500}
             onChange={(e) => setGenreSearch(e.target.value)}

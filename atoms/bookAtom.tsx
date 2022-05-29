@@ -10,6 +10,11 @@ export const bookGenre = atom({
   default: "",
 });
 
+export const bookAuthor = atom({
+  key: "bookAuthor",
+  default: "",
+});
+
 export const favCheckbox = atom({
   key: "favCheckbox",
   default: false,
