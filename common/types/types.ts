@@ -3,7 +3,12 @@ export type Book = {
     id: number;
     person: string;
   }[];
+  bookshelves: string[];
+  description: string;
+  downloads: number;
   id: number;
+  languages: string[];
+  license: string;
   resources: {
     id: number;
     type: string;
@@ -11,6 +16,7 @@ export type Book = {
   }[];
   subjects: string[];
   title: string;
+  type: string;
 };
 
 export type Resource = {
